@@ -91,6 +91,9 @@ def on_message(client, userdata, msg, properties=None):
 def mark_event_as_false_positive(event_id):
     """
     Marks an event as a false positive in Frigate.
+    Requires Frigate Plus API Key environment variable for marking reviewed
+    environment:
+      - PLUS_API_KEY=your_key
     """
     url = f"{FRIGATE_API_URL}/api/events/{event_id}/false_positive"
     try:
